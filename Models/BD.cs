@@ -6,7 +6,6 @@ namespace PrimerProyecto.Models;
 
 
 public class BD{
-    private string _connectionString = @"Server=localhost; 
-    DataBase=TP06; Integrated Security=True;TrustServerCertificate=True;";
+    private string _connectionString = @"Server=localhost; DataBase=TP06; Integrated Security=True;TrustServerCertificate=True;";
 }
 
