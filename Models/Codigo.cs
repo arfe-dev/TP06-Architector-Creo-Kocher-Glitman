@@ -1,4 +1,4 @@
-namespace PrimerProyecto.Models;
+namespace TP06.Models;
 
 public class CodigoFinal
 {
