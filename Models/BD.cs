@@ -1,6 +1,6 @@
 using Dapper;
 using Microsoft.Data.SqlClient;
-using TP4.Models;
+using TP06.Models;
 
 namespace PrimerProyecto.Models;
 

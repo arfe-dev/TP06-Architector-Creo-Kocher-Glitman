@@ -1,3 +1,31 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Elegir equipo";
 }
+
+
+@using TP06.Models
+
+<h1>Elegí tu equipo</h1>
+
+<p>Elegí el equipo con el que vas a jugar la Champions League.</p>
+
+<form  action='@Url.Action("Home", "Index")' method="post">
+
+    <button type="submit" name="equipo" value="Real Madrid">Real Madrid</button>
+    <button type="submit" name="equipo" value="Barcelona">Barcelona</button>
+    <button type="submit" name="equipo" value="Atlético De Madrid">Atlético De Madrid</button>
+    <button type="submit" name="equipo" value="Liverpool">Liverpool</button>
+    <button type="submit" name="equipo" value="Bayern Munich">Bayern Munich</button>
+    <button type="submit" name="equipo" value="PSG">PSG</button>
+    <button type="submit" name="equipo" value="Arsenal">Arsenal</button>
+    <button type="submit" name="equipo" value="Inter">Inter</button>
+    <button type="submit" name="equipo" value="Milan">Milan</button>
+    <button type="submit" name="equipo" value="Ajax">Ajax</button>
+    <button type="submit" name="equipo" value="Borussia Dortmund">Borussia Dortmund</button>
+    <button type="submit" name="equipo" value="Galatasaray">Galatasaray</button>
+    <button type="submit" name="equipo" value="Chelsea">Chelsea</button>
+    <button type="submit" name="equipo" value="Manchester United">Manchester United</button>
+    <button type="submit" name="equipo" value="Benfica">Benfica</button>
+    <button type="submit" name="equipo" value="Marsella">Marsella</button>
+
+</form>
