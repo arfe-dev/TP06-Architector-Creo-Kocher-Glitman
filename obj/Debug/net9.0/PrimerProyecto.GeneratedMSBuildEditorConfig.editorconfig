@@ -1,0 +1,73 @@
+is_global = true
+build_property.TargetFramework = net9.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = PrimerProyecto
+build_property.RootNamespace = PrimerProyecto
+build_property.ProjectDir = C:\Users\50416902\Downloads\TP06-Architector-Creo-Kocher-Glitman\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\50416902\Downloads\TP06-Architector-Creo-Kocher-Glitman
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Juego/Cuartos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cQ3VhcnRvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Juego/Final.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cRmluYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Juego/FinDeJuego.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cRmluRGVKdWVnby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Juego/Octavos.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cT2N0YXZvcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Juego/ResultadoCorrecto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cUmVzdWx0YWRvQ29ycmVjdG8uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Juego/Semis.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVlZ29cU2VtaXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/50416902/Downloads/TP06-Architector-Creo-Kocher-Glitman/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-wxllkct6j3
