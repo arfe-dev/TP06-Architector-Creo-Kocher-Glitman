@@ -12,15 +12,28 @@ public class JuegoController : Controller
     }
 
     [HttpPost]
-    public IActionResult Index(string equipo)
-    {
-        HttpContext.Session.SetString("Equipo", equipo);
-        return RedirectToAction("Octavos");
-    }
+public IActionResult Index(string equipo)
+{
+    HttpContext.Session.SetString("Equipo", equipo);
+
+    return RedirectToAction("Octavos");
+}
+
 
     public IActionResult Octavos()
     {
+        string equipo = HttpContext.Session.GetString("Equipo");
+
+        ViewBag.Equipo = equipo;
+        ViewBag.Imagen = equipo + ".png";
+
         return View();
+        
+        BD bd = new BD();
+
+        List<Pregunta> preguntas = bd.ObtenerPreguntas();
+
+        return View(preguntas);
     }
 
     public IActionResult Cuartos()
