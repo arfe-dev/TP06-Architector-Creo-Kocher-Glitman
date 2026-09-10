@@ -20,26 +20,28 @@ public IActionResult Index(string equipo)
 }
 
 
-    public IActionResult Octavos()
-    {
-        string equipo = HttpContext.Session.GetString("Equipo");
+   public IActionResult Octavos()
+{
+    string equipo = HttpContext.Session.GetString("Equipo");
 
-        ViewBag.Equipo = equipo;
-        ViewBag.Imagen = equipo + ".png";
+    ViewBag.Equipo = equipo;
+    ViewBag.Imagen = equipo + ".png";
 
-        return View();
-        
-        BD bd = new BD();
+    BD bd = new BD();
 
-        List<Pregunta> preguntas = bd.ObtenerPreguntas();
+    List<Pregunta> preguntas = bd.ObtenerPreguntas();
 
-        return View(preguntas);
-    }
+    return View(preguntas);
+}
 
     public IActionResult Cuartos()
-    {
-        return View();
-    }
+{
+    BD bd = new BD();
+
+    Ahorcado ahorcado = bd.ObtenerAhorcado();
+
+    return View(ahorcado);
+}
 
     public IActionResult Semis()
     {
