@@ -36,11 +36,12 @@ public IActionResult Index(string equipo)
 
     public IActionResult Cuartos()
 {
-    BD bd = new BD();
+    return View();
+    /*BD bd = new BD();
 
     Ahorcado ahorcado = bd.ObtenerAhorcado();
 
-    return View(ahorcado);
+    return View(ahorcado);*/
 }
 
     public IActionResult Semis()
