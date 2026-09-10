@@ -18,5 +18,35 @@ public class BD{
         }
 
 
-}
+    }  
+    public Equipo ObtenerEquipo(string nombre)
+    {
+        Equipo equipo = null;
+
+        using (SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = @"SELECT * FROM Equipos WHERE Nombre = @nombre";
+
+            equipo = connection.QueryFirstOrDefault<Equipo>(
+                query,
+                new { nombre = nombre }
+            );
+        }
+
+        return equipo;
+    }
+
+    public List<Equipo> ObtenerEquipos()
+    {
+        List<Equipo> equipos = new List<Equipo>();
+
+        using (SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = @"SELECT * FROM Equipos";
+
+            equipos = connection.Query<Equipo>(query).ToList();
+        }
+
+        return equipos;
+    }
 }
