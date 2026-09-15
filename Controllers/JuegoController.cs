@@ -80,8 +80,37 @@ public IActionResult Index(string equipo)
 
     public IActionResult Final()
     {
-        return View();
+         BD bd = new BD();
+
+        CodigoFinal codigo = bd.ObtenerCodigoFinal();
+
+        ViewBag.Pista1 = codigo.Pista1;
+        ViewBag.Pista2 = codigo.Pista2;
+        ViewBag.Pista3 = codigo.Pista3;
+
+    return View();
     }
+
+    [HttpPost]
+    public IActionResult Final(int respuesta)
+    {
+        BD bd = new BD();
+
+        CodigoFinal codigo = bd.ObtenerCodigoFinal();
+
+        if (respuesta == codigo.CodigoCorrecto)
+        {
+            return RedirectToAction("FinDeJuego");
+        }
+
+        ViewBag.Mensaje = "Código incorrecto. Intentá nuevamente.";
+
+        ViewBag.Pista1 = codigo.Pista1;
+        ViewBag.Pista2 = codigo.Pista2;
+        ViewBag.Pista3 = codigo.Pista3;
+
+        return View();
+}
 
     public IActionResult ResultadoCorrecto()
     {

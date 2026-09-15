@@ -71,4 +71,14 @@ public class BD{
             return connection.QueryFirstOrDefault<Jugador>(query);
         }
     }
+
+    public CodigoFinal ObtenerCodigoFinal()
+    {
+        using (SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = @"SELECT TOP 1 * FROM CodigoFinal";
+
+            return connection.QueryFirstOrDefault<CodigoFinal>(query);
+        }
+    }
 }

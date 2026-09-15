@@ -1,3 +1,30 @@
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Final";
 }
+
+<h1>FINAL</h1>
+
+<h2>¡Llegaste a la final!</h2>
+
+<h3>Descubrí el código usando las pistas:</h3>
+
+<p>@ViewBag.Pista1</p>
+
+<p>@ViewBag.Pista2</p>
+
+<p>@ViewBag.Pista3</p>
+
+<form action='@Url.Action("Final", "Juego")' method="post">
+
+    <p>Ingresá el código:</p>
+
+    <input type="number" name="respuesta">
+
+    <button type="submit">Resolver</button>
+
+</form>
+
+@if (ViewBag.Mensaje != null)
+{
+    <h3>@ViewBag.Mensaje</h3>
+}   
