@@ -1,3 +1,30 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+
+<h1>Cuartos de Final</h1>
+
+<h2>Adiviná el jugador</h2>
+
+<section>
+    <div>
+        <h2 id="palabraOculta"></h2>
+    </div>
+
+    <h4>Intentos restantes:</h4>
+    <h4 id="intentos">6</h4>
+
+    <h4 id="mensaje"></h4>
+
+    <p>Ingresa una letra:</p>
+
+    <input type="text" id="letra" maxlength="1" placeholder="Ingrese la letra">
+
+    <input type="hidden" id="palabra" value="@ViewBag.Palabra">
+
+    <button onclick="ArriesgarLetra()" id="boton">
+        Arriesgar letra
+    </button>
+</section>
+
+<script src="~/js/site.js"></script>

@@ -36,18 +36,47 @@ public IActionResult Index(string equipo)
 
     public IActionResult Cuartos()
 {
+
+    BD bd = new BD();
+
+    Ahorcado ahorcado = bd.ObtenerPalabraAhorcado();
+
+    ViewBag.Palabra = ahorcado.Palabra;
+
     return View();
-    /*BD bd = new BD();
 
-    Ahorcado ahorcado = bd.ObtenerAhorcado();
-
-    return View(ahorcado);*/
 }
 
     public IActionResult Semis()
-    {
-        return View();
+{
+    BD bd = new BD();
+
+    Jugador jugador = bd.ObtenerJugador();
+
+    HttpContext.Session.SetString("JugadorSemis", jugador.Nombre);
+
+    ViewBag.Nacionalidad = jugador.Nacionalidad;
+    ViewBag.Posicion = jugador.Posicion;
+    ViewBag.Club = jugador.Club;
+
+    return View();
+
     }
+
+    [HttpPost]
+    public IActionResult Semis(string respuesta)
+    {
+        string nombre = HttpContext.Session.GetString("JugadorSemis");
+
+        if (respuesta == nombre)
+        {   
+            return RedirectToAction("Final");
+        }
+
+        ViewBag.Mensaje = "Respuesta incorrecta";
+        return View();
+    }   
+
 
     public IActionResult Final()
     {

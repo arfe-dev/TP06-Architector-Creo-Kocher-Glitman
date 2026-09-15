@@ -1,3 +1,30 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+
+<h1>Semifinal</h1>
+
+<h2>¿Quién es este jugador?</h2>
+
+<h3>Pistas:</h3>
+
+<p>Su nacionalidad es: @ViewBag.Nacionalidad</p>
+
+<p>Su posición es: @ViewBag.Posicion</p>
+
+<p>Su club es: @ViewBag.Club</p>
+
+<form action='@Url.Action("Semis", "Juego")' method="post">
+
+    <p>Ingrese el nombre del jugador:</p>
+
+    <input type="text" name="respuesta">
+
+    <button type="submit">Responder</button>
+
+</form>
+
+@if (ViewBag.Mensaje != null)
+{
+    <h3>@ViewBag.Mensaje</h3>
+}

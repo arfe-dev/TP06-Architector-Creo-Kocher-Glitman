@@ -25,7 +25,7 @@ public class BD{
 
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = @"SELECT * FROM Equipos WHERE Nombre = @nombre";
+            string query = @"SELECT * FROM Equipo WHERE Nombre = @nombre";
 
             equipo = connection.QueryFirstOrDefault<Equipo>(
                 query,
@@ -42,11 +42,33 @@ public class BD{
 
         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = @"SELECT * FROM Equipos";
+            string query = @"SELECT * FROM Equipo";
 
             equipos = connection.Query<Equipo>(query).ToList();
         }
 
         return equipos;
+    }
+
+
+    public Ahorcado ObtenerPalabraAhorcado()
+    {
+        using (SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = @"SELECT TOP 1 * FROM Ahorcado ORDER BY NEWID()";
+
+            return connection.QueryFirstOrDefault<Ahorcado>(query);
+        }
+    }
+
+
+    public Jugador ObtenerJugador()
+    {
+        using (SqlConnection connection = new SqlConnection(_connectionString))
+        {
+            string query = @"SELECT TOP 1 * FROM Jugadores ORDER BY NEWID()";
+
+            return connection.QueryFirstOrDefault<Jugador>(query);
+        }
     }
 }
