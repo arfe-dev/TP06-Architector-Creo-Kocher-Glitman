@@ -7,6 +7,11 @@
 
 <h1>Elegí tu equipo</h1>
 
+@if (ViewBag.Mensaje != null)
+{
+    <h3>@ViewBag.Mensaje</h3>
+}
+
 <p>Elegí el equipo con el que vas a jugar la Champions League.</p>
 
 <form  action='@Url.Action("Index", "Juego")' method="post">

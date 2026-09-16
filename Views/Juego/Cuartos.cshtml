@@ -22,9 +22,13 @@
 
     <input type="hidden" id="palabra" value="@ViewBag.Palabra">
 
-    <button onclick="ArriesgarLetra()" id="boton">
+    <button type="button" onclick="ArriesgarLetra()" id="boton">
         Arriesgar letra
     </button>
 </section>
+
+<form id="siguienteForm" method="get" action="@Url.Action("Semis", "Juego")" style="display:none;">
+    <button type="submit">Siguiente</button>
+</form>
 
 <script src="~/js/site.js"></script>

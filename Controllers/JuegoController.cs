@@ -12,54 +12,74 @@ public class JuegoController : Controller
     }
 
     [HttpPost]
-public IActionResult Index(string equipo)
-{
-    HttpContext.Session.SetString("Equipo", equipo);
+    public IActionResult Index(string equipo)
+    {
+        HttpContext.Session.SetString("Equipo", equipo);
 
-    return RedirectToAction("Octavos");
-}
+        return RedirectToAction("Octavos");
+    }
 
 
-   public IActionResult Octavos()
-{
-    string equipo = HttpContext.Session.GetString("Equipo");
+    public IActionResult Octavos()
+    {
+        string equipo = HttpContext.Session.GetString("Equipo");
 
-    ViewBag.Equipo = equipo;
-    ViewBag.Imagen = equipo + ".png";
+        ViewBag.Equipo = equipo;
+        ViewBag.Imagen = equipo + ".png";
 
-    BD bd = new BD();
+        BD bd = new BD();
 
-    List<Pregunta> preguntas = bd.ObtenerPreguntas();
+        List<Pregunta> preguntas = bd.ObtenerPreguntas();
 
-    return View(preguntas);
-}
+        HttpContext.Session.SetString("OctavosRespuestaCorrecta1", preguntas[0].RespuestaCorrecta);
+        HttpContext.Session.SetString("OctavosRespuestaCorrecta2", preguntas[1].RespuestaCorrecta);
+        HttpContext.Session.SetString("OctavosRespuestaCorrecta3", preguntas[2].RespuestaCorrecta);
+
+        return View(preguntas);
+    }
+
+    [HttpPost]
+    public IActionResult Octavos(string respuesta1, string respuesta2, string respuesta3)
+    {
+        string respuestaCorrecta1 = HttpContext.Session.GetString("OctavosRespuestaCorrecta1");
+        string respuestaCorrecta2 = HttpContext.Session.GetString("OctavosRespuestaCorrecta2");
+        string respuestaCorrecta3 = HttpContext.Session.GetString("OctavosRespuestaCorrecta3");
+
+        if (respuesta1 == respuestaCorrecta1 && respuesta2 == respuestaCorrecta2 && respuesta3 == respuestaCorrecta3)
+        {
+            return RedirectToAction("Cuartos");
+        }
+
+        TempData["Mensaje"] = "Quedaste eliminado. Elegí otro equipo para volver a empezar.";
+        return RedirectToAction("Index", "Home");
+    }
 
     public IActionResult Cuartos()
-{
+    {
 
-    BD bd = new BD();
+        BD bd = new BD();
 
-    Ahorcado ahorcado = bd.ObtenerPalabraAhorcado();
+        Ahorcado ahorcado = bd.ObtenerPalabraAhorcado();
 
-    ViewBag.Palabra = ahorcado.Palabra;
+        ViewBag.Palabra = ahorcado.Palabra;
 
-    return View();
+        return View();
 
-}
+    }
 
     public IActionResult Semis()
-{
-    BD bd = new BD();
+    {
+        BD bd = new BD();
 
-    Jugador jugador = bd.ObtenerJugador();
+        Jugador jugador = bd.ObtenerJugador();
 
-    HttpContext.Session.SetString("JugadorSemis", jugador.Nombre);
+        HttpContext.Session.SetString("JugadorSemis", jugador.Nombre);
 
-    ViewBag.Nacionalidad = jugador.Nacionalidad;
-    ViewBag.Posicion = jugador.Posicion;
-    ViewBag.Club = jugador.Club;
+        ViewBag.Nacionalidad = jugador.Nacionalidad;
+        ViewBag.Posicion = jugador.Posicion;
+        ViewBag.Club = jugador.Club;
 
-    return View();
+        return View();
 
     }
 
