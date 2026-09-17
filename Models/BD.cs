@@ -74,11 +74,11 @@ public class BD{
 
     public CodigoFinal ObtenerCodigoFinal()
     {
-        using (SqlConnection connection = new SqlConnection(_connectionString))
+         using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-            string query = @"SELECT TOP 1 * FROM CodigoFinal";
+        string query = "SELECT TOP 1 * FROM CodigoFinal";
 
-            return connection.QueryFirstOrDefault<CodigoFinal>(query);
+        return connection.QueryFirstOrDefault<CodigoFinal>(query);
         }
     }
 }

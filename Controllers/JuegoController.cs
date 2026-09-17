@@ -73,6 +73,12 @@ public class JuegoController : Controller
 
         Jugador jugador = bd.ObtenerJugador();
 
+        if (jugador == null)
+        {
+            TempData["Mensaje"] = "Error: No hay jugadores disponibles en la base de datos.";
+            return RedirectToAction("Index", "Home");
+        }
+
         HttpContext.Session.SetString("JugadorSemis", jugador.Nombre);
 
         ViewBag.Nacionalidad = jugador.Nacionalidad;

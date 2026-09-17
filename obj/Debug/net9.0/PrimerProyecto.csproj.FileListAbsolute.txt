@@ -567,4 +567,4 @@ C:\Users\cejua\OneDrive\Documentos\FEDERCIO\2026 ORT\Prog\TP06-Architector-Creo-
 C:\Users\cejua\OneDrive\Documentos\FEDERCIO\2026 ORT\Prog\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\PrimerProyecto.pdb
 C:\Users\cejua\OneDrive\Documentos\FEDERCIO\2026 ORT\Prog\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\PrimerProyecto.genruntimeconfig.cache
 C:\Users\cejua\OneDrive\Documentos\FEDERCIO\2026 ORT\Prog\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\ref\PrimerProyecto.dll
-C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\compressed\89kyc16el9-n6cusrszqj.gz
+C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\compressed\89kyc16el9-awh39swkg8.gz
