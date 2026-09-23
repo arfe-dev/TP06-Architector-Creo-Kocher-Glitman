@@ -13,67 +13,41 @@
 
 <form action='@Url.Action("Octavos", "Juego")' method="post">
 
-    <h2>@Model[0].Enunciado</h2>
+    <div class="pregunta-block">
+        <h2 class="pregunta-enunciado">@Model[0].Enunciado</h2>
 
-    <input type="radio" name="respuesta1" value="@Model[0].OpcionA">
-    @Model[0].OpcionA
+        @foreach (var opcion in Model[0].Opciones)
+        {
+            <label class="pregunta-opcion">
+                <input type="radio" name="respuesta1" value="@opcion">
+                <span>@opcion</span>
+            </label>
+        }
+    </div>
 
-    <br>
+    <div class="pregunta-block">
+        <h2 class="pregunta-enunciado">@Model[1].Enunciado</h2>
 
-    <input type="radio" name="respuesta1" value="@Model[0].OpcionB">
-    @Model[0].OpcionB
+        @foreach (var opcion in Model[1].Opciones)
+        {
+            <label class="pregunta-opcion">
+                <input type="radio" name="respuesta2" value="@opcion">
+                <span>@opcion</span>
+            </label>
+        }
+    </div>
 
-    <br>
+    <div class="pregunta-block">
+        <h2 class="pregunta-enunciado">@Model[2].Enunciado</h2>
 
-    <input type="radio" name="respuesta1" value="@Model[0].OpcionC">
-    @Model[0].OpcionC
-
-    <br>
-
-    <input type="radio" name="respuesta1" value="@Model[0].OpcionD">
-    @Model[0].OpcionD
-
-
-    <h2>@Model[1].Enunciado</h2>
-
-    <input type="radio" name="respuesta2" value="@Model[1].OpcionA">
-    @Model[1].OpcionA
-
-    <br>
-
-    <input type="radio" name="respuesta2" value="@Model[1].OpcionB">
-    @Model[1].OpcionB
-
-    <br>
-
-    <input type="radio" name="respuesta2" value="@Model[1].OpcionC">
-    @Model[1].OpcionC
-
-    <br>
-
-    <input type="radio" name="respuesta2" value="@Model[1].OpcionD">
-    @Model[1].OpcionD
-
-
-    <h2>@Model[2].Enunciado</h2>
-
-    <input type="radio" name="respuesta3" value="@Model[2].OpcionA">
-    @Model[2].OpcionA
-
-    <br>
-
-    <input type="radio" name="respuesta3" value="@Model[2].OpcionB">
-    @Model[2].OpcionB
-
-    <br>
-
-    <input type="radio" name="respuesta3" value="@Model[2].OpcionC">
-    @Model[2].OpcionC
-
-    <br>
-
-    <input type="radio" name="respuesta3" value="@Model[2].OpcionD">
-    @Model[2].OpcionD
+        @foreach (var opcion in Model[2].Opciones)
+        {
+            <label class="pregunta-opcion">
+                <input type="radio" name="respuesta3" value="@opcion">
+                <span>@opcion</span>
+            </label>
+        }
+    </div>
 
     <br><br>
 

@@ -9,4 +9,5 @@ public class Pregunta
     public string OpcionC { get; set; }
     public string OpcionD { get; set; }
     public string RespuestaCorrecta { get; set; }
+    public List<string> Opciones { get; set; } = new();
 }

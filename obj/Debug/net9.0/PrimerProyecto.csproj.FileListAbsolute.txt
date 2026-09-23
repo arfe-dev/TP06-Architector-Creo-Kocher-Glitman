@@ -211,7 +211,6 @@ C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.
 C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\scopedcss\bundle\PrimerProyecto.styles.css
 C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\scopedcss\projectbundle\PrimerProyecto.bundle.scp.css
-C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\compressed\movtxhwak5-aa2uclici3.gz
 C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\compressed\1ai7anotsm-61n19gt1b8.gz
 C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\compressed\ev11bilh4z-t1cqhe9u97.gz
 C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\compressed\tna73tzyj6-c2jlpeoesf.gz
@@ -568,3 +567,4 @@ C:\Users\cejua\OneDrive\Documentos\FEDERCIO\2026 ORT\Prog\TP06-Architector-Creo-
 C:\Users\cejua\OneDrive\Documentos\FEDERCIO\2026 ORT\Prog\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\ref\PrimerProyecto.dll
 C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\compressed\89kyc16el9-awh39swkg8.gz
 C:\Users\cejua\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\compressed\89kyc16el9-awh39swkg8.gz
+C:\Users\50049697\Downloads\TP06-Architector-Creo-Kocher-Glitman\obj\Debug\net9.0\compressed\movtxhwak5-wne77748c5.gz

@@ -104,38 +104,29 @@ public class JuegoController : Controller
     }   
 
 
-    public IActionResult Final()
-    {
-         BD bd = new BD();
+   public IActionResult Final()
+{
+    CodigoFinal codigo = bd.ObtenerCodigoFinal();
 
-        CodigoFinal codigo = bd.ObtenerCodigoFinal();
-
-        ViewBag.Pista1 = codigo.Pista1;
-        ViewBag.Pista2 = codigo.Pista2;
-        ViewBag.Pista3 = codigo.Pista3;
+    ViewBag.Pista1 = codigo.Pista1;
+    ViewBag.Pista2 = codigo.Pista2;
+    ViewBag.Pista3 = codigo.Pista3;
 
     return View();
+}
+    [HttpPost]
+public IActionResult Final(int respuesta)
+{
+    int codigoCorrecto = HttpContext.Session.GetInt32("CodigoCorrecto").Value;
+
+    if (respuesta == codigoCorrecto)
+    {
+        return RedirectToAction("ResultadoCorrecto");
     }
 
-    [HttpPost]
-    public IActionResult Final(int respuesta)
-    {
-        BD bd = new BD();
+    ViewBag.Mensaje = "Código incorrecto";
 
-        CodigoFinal codigo = bd.ObtenerCodigoFinal();
-
-        if (respuesta == codigo.CodigoCorrecto)
-        {
-            return RedirectToAction("FinDeJuego");
-        }
-
-        ViewBag.Mensaje = "Código incorrecto. Intentá nuevamente.";
-
-        ViewBag.Pista1 = codigo.Pista1;
-        ViewBag.Pista2 = codigo.Pista2;
-        ViewBag.Pista3 = codigo.Pista3;
-
-        return View();
+    return Final();
 }
 
     public IActionResult ResultadoCorrecto()
