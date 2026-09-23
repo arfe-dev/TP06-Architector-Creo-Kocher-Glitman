@@ -94,7 +94,7 @@ public class JuegoController : Controller
     {
         string nombre = HttpContext.Session.GetString("JugadorSemis");
 
-        if (respuesta == nombre)
+        if (respuesta.ToLower() == nombre.ToLower())    
         {   
             return RedirectToAction("Final");
         }

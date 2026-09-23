@@ -76,7 +76,7 @@ public class BD{
     {
          using (SqlConnection connection = new SqlConnection(_connectionString))
         {
-        string query = "SELECT TOP 1 * FROM CodigoFinal";
+        string query = "SELECT TOP 1 * FROM CodigoFinal ORDER BY NEWID()";
 
         return connection.QueryFirstOrDefault<CodigoFinal>(query);
         }
