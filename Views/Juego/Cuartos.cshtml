@@ -1,34 +1,32 @@
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Cuartos de Final";
 }
 
 <h1>Cuartos de Final</h1>
 
 <h2>Adiviná el jugador</h2>
 
-<section>
-    <div>
-        <h2 id="palabraOculta"></h2>
-    </div>
+<div class="ahorcado">
+    <h2 id="palabraOculta">@ViewBag.PalabraOculta</h2>
 
     <h4>Intentos restantes:</h4>
-    <h4 id="intentos">6</h4>
 
-    <h4 id="mensaje"></h4>
+    <h4 id="intentos">@ViewBag.Intentos</h4>
 
-    <p>Ingresa una letra:</p>
+    @if (ViewBag.Mensaje != null)
+    {
+        <h4 id="mensaje">@ViewBag.Mensaje</h4>
+    }
 
-    <input type="text" id="letra" maxlength="1" placeholder="Ingrese la letra">
+    <form action='@Url.Action("Cuartos", "Juego")' method="post">
 
-    <input type="hidden" id="palabra" value="@ViewBag.Palabra">
+        <p>Ingresá una letra:</p>
 
-    <button type="button" onclick="ArriesgarLetra()" id="boton">
-        Arriesgar letra
-    </button>
-</section>
+        <input type="text" name="letra" maxlength="1" required />
 
-<form id="siguienteForm" method="get" action="@Url.Action("Semis", "Juego")" style="display:none;">
-    <button type="submit">Siguiente</button>
-</form>
+        <button type="submit">
+            Arriesgar letra
+        </button>
 
-<script src="~/js/site.js"></script>
+    </form>
+</div>

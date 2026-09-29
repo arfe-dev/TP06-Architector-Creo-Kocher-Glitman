@@ -18,7 +18,16 @@ public class HomeController : Controller
         ViewBag.Mensaje = TempData["Mensaje"];
         return View();
     }
+    public IActionResult Tutorial()
+    {
+        return View();
+    }
 
+    public IActionResult Integrantes()
+    {
+        return View();
+    }
+    
     public IActionResult Privacy()
     {
         return View();

@@ -12,10 +12,13 @@
     <h3>@ViewBag.Mensaje</h3>
 }
 
-<p>Elegí el equipo con el que vas a jugar la Champions League.</p>
+
 
 <form  action='@Url.Action("Index", "Juego")' method="post">
+    <p>Ingresá tu nombre:</p>
 
+    <input type="text" name="nombre" required>
+    <p>Elegí el equipo con el que vas a jugar la Champions League.</p>
     <button type="submit" name="equipo" value="Real Madrid"><img src="/Equipos/Real Madrid.png" alt="Real Madrid"></button>
     <button type="submit" name="equipo" value="Barcelona"><img src="/Equipos/Barcelona.png" alt="Barcelona"></button>
     <button type="submit" name="equipo" value="Atletico De Madrid"><img src="/Equipos/Atletico De Madrid.png" alt="Atlético De Madrid"></button>
@@ -35,5 +38,19 @@
     <button type="submit" name="equipo" value="Manchester United"><img src="/Equipos/Manchester United.png" alt="Manchester United"></button>
     <button type="submit" name="equipo" value="Benfica"><img src="/Equipos/Benfica.png" alt="Benfica"></button>
     <button type="submit" name="equipo" value="Marsella"><img src="/Equipos/Marsella.png" alt="Marsella"></button>
+
+</form>
+
+<hr>
+
+<h2>¿Ya tenés una partida?</h2>
+
+<form action='@Url.Action("Retomar", "Juego")' method="get">
+
+    <input type="text" name="nombre" placeholder="Tu nombre" required>
+
+    <button type="submit">
+        Retomar partida
+    </button>
 
 </form>

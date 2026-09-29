@@ -114,5 +114,48 @@ public CodigoFinal ObtenerCodigoFinal()
         return codigos[numero];
     }
 }
+public int CrearPartida(string nombre, string equipo)
+{
+    using (SqlConnection connection = new SqlConnection(_connectionString))
+    {
+        string query = @"INSERT INTO Partidas (Descripcion, NombreDelParticipante, Equipo, Fase) VALUES (@descripcion, @nombre, @equipo, 1); SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
+        return connection.QuerySingle<int>(
+            query,
+            new
+            {
+                descripcion = "Partida de Champions",
+                nombre = nombre,
+                equipo = equipo
+            }
+        );
+    }
+}
+
+public void ActualizarFase(int id, int fase)
+{
+    using (SqlConnection connection = new SqlConnection(_connectionString))
+    {
+        string query = "UPDATE Partidas SET Fase = @fase WHERE Id = @id";
+
+        connection.Execute(query, new
+        {
+            id = id,
+            fase = fase
+        });
+    }
+}
+
+public Partida ObtenerPartida(string nombre)
+{
+    using (SqlConnection connection = new SqlConnection(_connectionString))
+    {
+        string query = @"SELECT TOP 1 * FROM Partidas WHERE NombreDelParticipante = @nombre ORDER BY Id DESC";
+
+        return connection.QueryFirstOrDefault<Partida>(
+            query,
+            new { nombre = nombre }
+        );
+    }
+}
 }

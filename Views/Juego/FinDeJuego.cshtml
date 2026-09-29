@@ -1,11 +1,24 @@
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Fin del juego";
 }
 
-<h1>¡GANASTE!</h1>
+<div class="fin-juego">
 
-<h2>Felicitaciones</h2>
+    <h1>🏆 ¡GANASTE! 🏆</h1>
 
-<p>Superaste todas las rondas del Escape Room de Champions League.</p>
+    <h2>¡Felicitaciones!</h2>
 
-<a href='@Url.Action("Index", "Home")'>Jugar nuevamente</a>
+    <p>
+        Superaste todas las etapas del Escape Room de Champions League.
+    </p>
+
+    <p>
+        Lograste llegar desde Octavos hasta la Final y descubrir el código.
+    </p>
+
+    <a class="boton-juego"
+       href='@Url.Action("Index", "Home")'>
+        Jugar nuevamente
+    </a>
+
+</div>
