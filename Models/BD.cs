@@ -118,15 +118,14 @@ public int CrearPartida(string nombre, string equipo)
 {
     using (SqlConnection connection = new SqlConnection(_connectionString))
     {
-        string query = @"INSERT INTO Partidas (Descripcion, NombreDelParticipante, Equipo, Fase) VALUES (@descripcion, @nombre, @equipo, 1); SELECT CAST(SCOPE_IDENTITY() AS INT);";
+        string query = @"INSERT INTO Partidas (Descripcion, NombreDelParticipante) VALUES (@descripcion, @nombre); SELECT CAST(SCOPE_IDENTITY() AS INT);";
 
         return connection.QuerySingle<int>(
             query,
             new
             {
                 descripcion = "Partida de Champions",
-                nombre = nombre,
-                equipo = equipo
+                nombre = nombre
             }
         );
     }

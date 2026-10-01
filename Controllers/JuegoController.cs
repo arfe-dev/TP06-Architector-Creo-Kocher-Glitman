@@ -10,8 +10,7 @@ public class JuegoController : Controller
         ViewBag.Mensaje = TempData["Mensaje"];
         return View();
     }
-
-    [HttpPost]
+    
     [HttpPost]
 public IActionResult Index(string nombre, string equipo)
 {
