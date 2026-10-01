@@ -46,12 +46,71 @@ html {
 }
 
 body {
-    background-image: url('/Equipos/fondoChampions.png');
+    margin: 0;
+
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    font-family: Arial, sans-serif;
+    background-attachment: fixed;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    color: white;
 }
+
+
+/* =========================
+   FONDOS DE CADA ETAPA
+   ========================= */
+
+
+body {
+    background-image: url('/Equipos/fondoChampions');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+body.octavos {
+    background-image:
+        linear-gradient(rgba(3, 12, 38, 0.30), rgba(3, 12, 38, 0.50)),
+        url('/Equipos/fondoChampions1.png');
+}
+
+body.cuartos {
+    background-image:
+        linear-gradient(rgba(3, 12, 38, 0.30), rgba(3, 12, 38, 0.50)),
+        url('/Equipos/fondoChampions2.png');
+}
+
+body.semis {
+    background-image:
+        linear-gradient(rgba(3, 12, 38, 0.30), rgba(3, 12, 38, 0.50)),
+        url('/Equipos/fondoChampions3.png');
+}
+
+body.final {
+    background-image:
+        linear-gradient(rgba(3, 12, 38, 0.30), rgba(3, 12, 38, 0.50)),
+        url('/Equipos/fondoChampions4.png');
+}
+
+body.resultado {
+    background-image:
+        linear-gradient(rgba(3, 12, 38, 0.30), rgba(3, 12, 38, 0.50)),
+        url('/Equipos/fondoChampions5.png');
+}
+
+body.fin {
+    background-image:
+        linear-gradient(rgba(3, 12, 38, 0.25), rgba(3, 12, 38, 0.40)),
+        url('/Equipos/fondoChampions6.png');
+}
+
+
+/* =========================
+   CONTENIDO
+   ========================= */
 
 main {
     width: 90%;
@@ -61,31 +120,55 @@ main {
     text-align: center;
 }
 
+
+/* =========================
+   TITULOS
+   ========================= */
+
 h1 {
-    font-size: 40px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 46px;
     margin-bottom: 15px;
-    color: #0b1f4b;
+    color: white;
+
+    text-shadow:
+        0 3px 5px black,
+        0 0 15px rgba(242, 201, 76, 0.6);
+
+    letter-spacing: 1px;
 }
 
 h2 {
-    color: #172554;
+    font-family: Georgia, "Times New Roman", serif;
+    color: white;
     margin-top: 20px;
+    text-shadow: 0 2px 5px black;
 }
 
 h3 {
-    color: #334155;
+    color: white;
+    margin-top: 20px;
+    text-shadow: 0 2px 4px black;
 }
 
 p {
     font-size: 18px;
+    text-shadow: 0 2px 4px black;
 }
 
+
+/* =========================
+   HEADER
+   ========================= */
+
 header {
-    background-color: #071a3d;
+    background-color: rgba(4, 16, 45, 0.95);
+    border-bottom: 2px solid #d4af37;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
 }
 
 header nav {
-    background-color: #071a3d;
+    background-color: transparent;
 }
 
 header a {
@@ -94,7 +177,8 @@ header a {
 
 header .navbar-brand {
     color: white;
-    font-size: 24px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 26px;
     font-weight: bold;
 }
 
@@ -102,29 +186,89 @@ header .nav-link {
     color: white;
 }
 
-footer{
-  margin-top: 100px;
+header .nav-link:hover {
+    color: #f2c94c;
 }
 
-button {
-    background-color: #0b3d91;
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    margin-top: 100px;
     color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 6px;
+}
+
+
+
+button {
+    background: linear-gradient(180deg, #174ea6, #082f6b);
+
+    color: white;
+
+    border: 2px solid #d4af37;
+
+    padding: 13px 28px;
+
+    border-radius: 8px;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
     font-size: 16px;
+    font-weight: bold;
+
     cursor: pointer;
     margin: 10px;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.5),
+        0 0 8px rgba(212, 175, 55, 0.25);
 }
 
 button:hover {
-    background-color: #082f6b;
+    background: linear-gradient(180deg, #2466c4, #0b3d91);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 6px 15px rgba(0, 0, 0, 0.6),
+        0 0 14px rgba(212, 175, 55, 0.6);
 }
 
 
 form {
     margin-top: 25px;
 }
+
+input[type="text"],
+input[type="number"] {
+    width: 250px;
+
+    padding: 12px;
+
+    background-color: rgba(255, 255, 255, 0.92);
+
+    border: 2px solid #d4af37;
+
+    border-radius: 7px;
+
+    font-size: 17px;
+
+    margin: 10px;
+
+    color: #071a3d;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #f2c94c;
+
+    outline: none;
+
+    box-shadow: 0 0 12px rgba(242, 201, 76, 0.7);
+}
+
+
 
 form button img {
     width: 80px;
@@ -133,56 +277,115 @@ form button img {
 }
 
 form button:has(img) {
-    background-color: white;
-    border: 2px solid #d1d5db;
+    background: rgba(255, 255, 255, 0.95);
+
+    border: 3px solid rgba(212, 175, 55, 0.7);
+
     width: 150px;
     height: 150px;
+
     margin: 10px;
-    border-radius: 10px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.55),
+        0 0 8px rgba(212, 175, 55, 0.2);
 }
 
 form button:has(img):hover {
-    border-color: #0b3d91;
-    background-color: #eef4ff;
-}
+    border-color: #f2c94c;
 
+    background-color: white;
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.6),
+        0 0 20px rgba(242, 201, 76, 0.8);
+}
 
 main > img {
     width: 150px;
     height: 150px;
+
     object-fit: contain;
+
     margin: 20px;
+
+    filter: drop-shadow(0 5px 8px black);
 }
+
 
 
 .pregunta-block {
     margin: 30px auto;
-    padding: 20px 15px;
+
+    padding: 25px 20px;
+
     max-width: 760px;
+
     text-align: left;
-    background: rgba(255, 255, 255, 0.75);
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.08);
+
+    background: rgba(5, 18, 50, 0.90);
+
+    border: 2px solid #d4af37;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.6),
+        0 0 12px rgba(212, 175, 55, 0.2);
 }
 
 .pregunta-enunciado {
+    font-family: Georgia, "Times New Roman", serif;
+
     font-size: clamp(1.15rem, 2vw, 1.6rem);
+
     min-height: 78px;
-    margin: 0 0 15px;
+
+    margin: 0 0 18px;
+
     line-height: 1.4;
-    color: #172554;
+
+    color: white;
+
     word-break: break-word;
+
+    text-shadow: 0 2px 4px black;
 }
 
 .pregunta-opcion {
     display: flex;
+
     align-items: center;
+
     gap: 10px;
+
     margin: 10px 0;
+
+    padding: 12px;
+
     font-size: 1.05rem;
+
     line-height: 1.4;
-    color: #0f172a;
+
+    color: white;
+
+    background-color: rgba(255, 255, 255, 0.08);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 8px;
+
     cursor: pointer;
+}
+
+.pregunta-opcion:hover {
+    background-color: rgba(212, 175, 55, 0.20);
+
+    border-color: #d4af37;
 }
 
 .pregunta-opcion input[type="radio"] {
@@ -205,38 +408,29 @@ input[type="radio"] + * {
 
 
 
-input[type="text"],
-input[type="number"] {
-    width: 250px;
-    padding: 12px;
-    border: 2px solid #cbd5e1;
-    border-radius: 6px;
-    font-size: 17px;
-    margin: 10px;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
-    border-color: #0b3d91;
-    outline: none;
-}
-
-
-
 #palabraOculta {
+    font-family: Georgia, "Times New Roman", serif;
+
     font-size: 40px;
+
     letter-spacing: 10px;
+
     margin: 25px;
-    color: #0b3d91;
+
+    color: #f2c94c;
+
+    text-shadow:
+        0 3px 5px black,
+        0 0 10px rgba(242, 201, 76, 0.5);
 }
 
 #intentos {
     font-size: 25px;
-    color: #172554;
+    color: white;
 }
 
 #mensaje {
-    color: #b91c1c;
+    color: #f2c94c;
     font-size: 20px;
 }
 
@@ -246,37 +440,147 @@ input[type="number"]:focus {
 
 
 
-main p {
-    margin: 12px;
+.pistas-final {
+    background-color: rgba(5, 18, 50, 0.92);
+
+    border: 2px solid #d4af37;
+
+    border-radius: 14px;
+
+    padding: 20px;
+
+    margin: 25px auto;
+
+    max-width: 700px;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.6),
+        0 0 10px rgba(212, 175, 55, 0.2);
 }
+
+.pistas-final p {
+    padding: 15px;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.pistas-final p:last-child {
+    border-bottom: none;
+}
+
+
+
+.ahorcado {
+    background-color: rgba(5, 18, 50, 0.92);
+
+    padding: 30px;
+
+    border: 2px solid #d4af37;
+
+    border-radius: 14px;
+
+    max-width: 700px;
+
+    margin: 30px auto;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.6),
+        0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+
+
+.resultado-correcto,
+.fin-juego,
+.tutorial,
+.integrantes {
+    background-color: rgba(5, 18, 50, 0.92);
+
+    padding: 35px;
+
+    border: 2px solid #d4af37;
+
+    border-radius: 14px;
+
+    max-width: 800px;
+
+    margin: 30px auto;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.6),
+        0 0 10px rgba(212, 175, 55, 0.2);
+}
+
+.resultado-correcto h1,
+.fin-juego h1 {
+    color: #f2c94c;
+    font-size: 42px;
+}
+
+
+
+
+.boton-juego {
+    display: inline-block;
+
+    background: linear-gradient(180deg, #174ea6, #082f6b);
+
+    color: white;
+
+    padding: 12px 25px;
+
+    border: 2px solid #d4af37;
+
+    border-radius: 8px;
+
+    margin-top: 20px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.boton-juego:hover {
+    background: linear-gradient(180deg, #2466c4, #0b3d91);
+
+    color: white;
+
+    text-decoration: none;
+
+    transform: translateY(-2px);
+}
+
+
+
+
+.tutorial h2,
+.integrantes h2 {
+    color: #f2c94c;
+    margin-top: 25px;
+}
+
+
+
 
 audio {
     margin: 20px;
 }
 
 
-main form p {
-    font-weight: bold;
-}
-
-main form h3 {
-    color: #b91c1c;
-}
 
 
 a {
-    color: #0b3d91;
+    color: #f2c94c;
     text-decoration: none;
 }
 
 a:hover {
+    color: white;
     text-decoration: underline;
 }
 
-
-h3 {
-    margin-top: 20px;
-}
 
 
 @media (max-width: 700px) {
@@ -302,70 +606,8 @@ h3 {
         font-size: 1rem;
     }
 
-    .pistas-final {
-    background-color: white;
-    border: 2px solid #0b3d91;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 25px auto;
-    max-width: 700px;
-}
-
-.pistas-final p {
-    padding: 15px;
-    border-bottom: 1px solid #cbd5e1;
-}
-
-.pistas-final p:last-child {
-    border-bottom: none;
-}
-
-.ahorcado {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 700px;
-    margin: 30px auto;
-    box-shadow: 0 2px 10px #cbd5e1;
-}
-
-.resultado-correcto,
-.fin-juego,
-.tutorial,
-.integrantes {
-    background-color: white;
-    padding: 35px;
-    border-radius: 12px;
-    max-width: 800px;
-    margin: 30px auto;
-    box-shadow: 0 2px 10px #cbd5e1;
-}
-
-.resultado-correcto h1,
-.fin-juego h1 {
-    color: #0b3d91;
-    font-size: 42px;
-}
-
-.boton-juego {
-    display: inline-block;
-    background-color: #0b3d91;
-    color: white;
-    padding: 12px 25px;
-    border-radius: 6px;
-    margin-top: 20px;
-    text-decoration: none;
-}
-
-.boton-juego:hover {
-    background-color: #082f6b;
-    color: white;
-    text-decoration: none;
-}
-
-.tutorial h2,
-.integrantes h2 {
-    color: #0b3d91;
-    margin-top: 25px;
-}   
+    input[type="text"],
+    input[type="number"] {
+        width: 80%;
+    }
 }

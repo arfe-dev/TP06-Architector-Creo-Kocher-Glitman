@@ -1,7 +1,5 @@
-using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using TP06.Models;
-
 
 namespace TP06.Controllers;
 
@@ -9,38 +7,36 @@ public class JuegoController : Controller
 {
     public IActionResult Index()
     {
-        ViewBag.Mensaje = "Ingresá tu nombre para comenzar.";
+        ViewBag.Mensaje = TempData["Mensaje"];
         return View();
     }
 
     [HttpPost]
-    public IActionResult Index(string nombre, string equipo)
+    [HttpPost]
+public IActionResult Index(string nombre, string equipo)
+{
+    if (string.IsNullOrWhiteSpace(nombre))
     {
-        if (string.IsNullOrWhiteSpace(nombre))
-        {
-            ViewBag.Mensaje = "Ingresá tu nombre para comenzar.";
-            return RedirectToAction("Index");
-        }
-
-        if (string.IsNullOrWhiteSpace(equipo))
-        {
-            ViewBag.Mensaje = "Elegí un equipo para comenzar.";
-            return RedirectToAction("Index");
-        }
-
-        BD bd = new BD();
-
-        int idPartida = bd.CrearPartida(nombre, equipo);
-
-        
-        HttpContext.Session.SetString("Nombre", nombre);
-        HttpContext.Session.SetString("Equipo", equipo);
-
-        return RedirectToAction("Octavos");
+        ViewBag.Mensaje = "Ingresá tu nombre para comenzar.";
+        return RedirectToAction("Index");
     }
 
+    if (string.IsNullOrWhiteSpace(equipo))
+    {
+        ViewBag.Mensaje = "Elegí un equipo para comenzar.";
+        return RedirectToAction("Index");
+    }
 
-    
+    BD bd = new BD();
+
+    int idPartida = bd.CrearPartida(nombre, equipo);
+
+    HttpContext.Session.SetInt32("PartidaId", idPartida);
+    HttpContext.Session.SetString("Nombre", nombre);
+    HttpContext.Session.SetString("Equipo", equipo);
+
+    return RedirectToAction("Octavos");
+}
 
 
     public IActionResult Octavos()
@@ -60,7 +56,7 @@ public class JuegoController : Controller
 
         List<Pregunta> preguntas = bd.ObtenerPreguntas();
 
-        HttpContext.Session.SetString("OctavosRespuestaCorrecta1", preguntas[0].RespuestaCorrecta);
+        HttpContext.Session.SetString("OctavosRespuestaCorrecta1",preguntas[0].RespuestaCorrecta);
 
         HttpContext.Session.SetString("OctavosRespuestaCorrecta2", preguntas[1].RespuestaCorrecta);
 
@@ -71,7 +67,8 @@ public class JuegoController : Controller
 
 
     [HttpPost]
-    public IActionResult Octavos( string respuesta1, string respuesta2, string respuesta3)
+    public IActionResult Octavos(
+        string respuesta1, string respuesta2, string respuesta3)
     {
         string respuestaCorrecta1 = HttpContext.Session.GetString("OctavosRespuestaCorrecta1");
 
@@ -83,6 +80,11 @@ public class JuegoController : Controller
         {
             HttpContext.Session.SetString("OctavosSuperados", "true");
 
+            int idPartida = HttpContext.Session.GetInt32("PartidaId").Value;
+
+            BD bd = new BD();
+
+            bd.ActualizarFase(idPartida, 2);
 
             return RedirectToAction("Cuartos");
         }
@@ -104,18 +106,24 @@ public class JuegoController : Controller
             return RedirectToAction("Index", "Home");
         }
 
-        BD bd = new BD();
+        string palabra = HttpContext.Session.GetString("CuartosPalabra");
 
-        Ahorcado ahorcado = bd.ObtenerPalabraAhorcado();
+        if (string.IsNullOrEmpty(palabra))
+        {
+            BD bd = new BD();
 
-        string palabra = ahorcado.Palabra.ToUpper();
+            Ahorcado ahorcado = bd.ObtenerPalabraAhorcado();
 
-        HttpContext.Session.SetString("CuartosPalabra", palabra);
-        HttpContext.Session.SetString("CuartosLetras", "");
-        HttpContext.Session.SetString("CuartosIntentos", "6");
-        ViewBag.PalabraOculta = ObtenerPalabraOculta( palabra, HttpContext.Session.GetString("CuartosLetras"));
+            palabra = ahorcado.Palabra.ToUpper();
 
-        ViewBag.Intentos = int.Parse(HttpContext.Session.GetString("CuartosIntentos"));
+            HttpContext.Session.SetString("CuartosPalabra", palabra);
+            HttpContext.Session.SetString("CuartosLetras", "");
+            HttpContext.Session.SetInt32("CuartosIntentos", 6);
+        }
+
+        ViewBag.PalabraOculta = ObtenerPalabraOculta(palabra, HttpContext.Session.GetString("CuartosLetras"));
+
+        ViewBag.Intentos = HttpContext.Session.GetInt32("CuartosIntentos").Value;
 
         return View();
     }
@@ -156,18 +164,18 @@ public class JuegoController : Controller
 
                 if (!palabra.Contains(letra))
                 {
-                    int intentos = int.Parse(HttpContext.Session.GetString("CuartosIntentos"));
+                    int intentos = HttpContext.Session.GetInt32("CuartosIntentos").Value;
 
                     intentos--;
 
-                    HttpContext.Session.SetString("CuartosIntentos", intentos.ToString());
+                    HttpContext.Session.SetInt32( "CuartosIntentos", intentos);
                 }
             }
         }
 
         string letrasActuales = HttpContext.Session.GetString("CuartosLetras");
 
-        int intentosActuales = int.Parse(HttpContext.Session.GetString("CuartosIntentos"));
+        int intentosActuales = HttpContext.Session.GetInt32("CuartosIntentos").Value;
 
         string palabraOculta = ObtenerPalabraOculta(palabra, letrasActuales);
 
@@ -178,6 +186,11 @@ public class JuegoController : Controller
         {
             HttpContext.Session.SetString("CuartosSuperados", "true");
 
+            int idPartida = HttpContext.Session.GetInt32("PartidaId").Value;
+
+            BD bd = new BD();
+
+            bd.ActualizarFase(idPartida, 3);
 
             return RedirectToAction("Semis");
         }
@@ -265,6 +278,11 @@ public class JuegoController : Controller
         {
             HttpContext.Session.SetString("SemisSuperadas", "true");
 
+            int idPartida = HttpContext.Session.GetInt32("PartidaId").Value;
+
+            BD bd = new BD();
+
+            bd.ActualizarFase(idPartida, 4);
 
             return RedirectToAction("Final");
         }
@@ -281,7 +299,7 @@ public class JuegoController : Controller
 
         if (semisSuperadas != "true")
         {
-            TempData["Mensaje"] = "No podés entrar a la Final sin superar Semifinal.";
+            ViewBag.Mensaje = "No podés entrar a la Final sin superar Semifinal.";
 
             return RedirectToAction("Index", "Home");
         }
@@ -290,7 +308,7 @@ public class JuegoController : Controller
 
         CodigoFinal codigo = bd.ObtenerCodigoFinal();
 
-       HttpContext.Session.SetString("CodigoCorrecto", codigo.CodigoCorrecto.ToString());
+        HttpContext.Session.SetString("CodigoCorrecto", codigo.CodigoCorrecto.ToString());
 
         ViewBag.Pista1 = codigo.Pista1;
         ViewBag.Pista2 = codigo.Pista2;
@@ -311,12 +329,20 @@ public class JuegoController : Controller
         }
 
         string codigoCorrecto = HttpContext.Session.GetString("CodigoCorrecto");
+
         if (respuesta.ToString() == codigoCorrecto)
         {
-            HttpContext.Session.SetString("FinalSuperada","true");
+            HttpContext.Session.SetString("FinalSuperada", "true");
 
-    return RedirectToAction("ResultadoCorrecto");
-}
+            int idPartida = HttpContext.Session.GetInt32("PartidaId").Value;
+
+            BD bd = new BD();
+
+            bd.ActualizarFase(idPartida, 5);
+
+            return RedirectToAction("ResultadoCorrecto");
+        }
+
         ViewBag.Mensaje = "Código incorrecto.";
 
         BD bd2 = new BD();
