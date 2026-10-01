@@ -9,9 +9,26 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PrimerProyecto.styles.css" asp-append-version="true" />
 </head>
-<body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+@{
+    var action = ViewContext.RouteData.Values["action"]?.ToString();
+    var bodyClass = action switch
+    {
+        "Index" => "index",
+        "Tutorial" => "tutorial-page",
+        "Integrantes" => "integrantes-page",
+        "Privacy" => "privacy-page",
+        "Octavos" => "octavos",
+        "Cuartos" => "cuartos",
+        "Semis" => "semis",
+        "Final" => "final",
+        "ResultadoCorrecto" => "resultado",
+        "FinDeJuego" => "fin",
+        _ => ""
+    };
+}
+<body class="@bodyClass">
+    <header class="champions-header">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3 champions-nav">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PrimerProyecto</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"

@@ -107,6 +107,30 @@ body.fin {
         url('/Equipos/fondoChampions6.png');
 }
 
+body.index {
+    background-image:
+        linear-gradient(rgba(3, 12, 38, 0.30), rgba(3, 12, 38, 0.50)),
+        url('/Equipos/fondoChampions.png');
+}
+
+body.tutorial-page {
+    background-image:
+        linear-gradient(rgba(3, 12, 38, 0.30), rgba(3, 12, 38, 0.50)),
+        url('/Equipos/fondoChampions.png');
+}
+
+body.integrantes-page {
+    background-image:
+        linear-gradient(rgba(3, 12, 38, 0.30), rgba(3, 12, 38, 0.50)),
+        url('/Equipos/fondoChampions.png');
+}
+
+body.privacy-page {
+    background-image:
+        linear-gradient(rgba(3, 12, 38, 0.30), rgba(3, 12, 38, 0.50)),
+        url('/Equipos/fondoChampions.png');
+}
+
 
 /* =========================
    CONTENIDO
@@ -116,8 +140,16 @@ main {
     width: 90%;
     max-width: 1100px;
     margin: 30px auto;
-    padding-bottom: 200px;
+    padding-bottom: 130px;
     text-align: center;
+}
+
+main > *:last-child {
+    margin-bottom: 40px;
+}
+
+form:last-child {
+    margin-bottom: 50px;
 }
 
 
@@ -190,14 +222,61 @@ header .nav-link:hover {
     color: #f2c94c;
 }
 
+.champions-header {
+    background: rgba(8, 28, 67, 0.82);
+    border-bottom: 2px solid #f2c94c;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(4px);
+}
+
+.champions-nav {
+    background: transparent;
+}
+
+.champions-header .navbar-brand,
+.champions-header .nav-link {
+    color: #f8f8f8 !important;
+    transition: color 0.2s ease;
+}
+
+.champions-header .navbar-brand:hover,
+.champions-header .nav-link:hover {
+    color: #f2c94c !important;
+}
+
+.champions-header .nav-link {
+    font-weight: 600;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
 
 /* =========================
    FOOTER
    ========================= */
 
 footer {
-    margin-top: 100px;
-    color: white;
+    margin-top: 120px;
+    padding: 18px 0 12px;
+    background: rgba(8, 28, 67, 0.82);
+    border-top: 2px solid #f2c94c !important;
+    color: #f8f8f8;
+    box-shadow: 0 -6px 18px rgba(0, 0, 0, 0.35);
+}
+
+footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+footer a {
+    color: #f2c94c;
+}
+
+footer a:hover {
+    color: #fff3b0;
 }
 
 
@@ -238,6 +317,7 @@ button:hover {
 
 form {
     margin-top: 25px;
+    margin-bottom: 20px;
 }
 
 input[type="text"],
@@ -551,7 +631,6 @@ input[type="radio"] + * {
 
     transform: translateY(-2px);
 }
-
 
 
 

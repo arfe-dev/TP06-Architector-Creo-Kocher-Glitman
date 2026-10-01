@@ -10,7 +10,7 @@ public class JuegoController : Controller
         ViewBag.Mensaje = TempData["Mensaje"];
         return View();
     }
-    
+
     [HttpPost]
 public IActionResult Index(string nombre, string equipo)
 {
@@ -79,11 +79,7 @@ public IActionResult Index(string nombre, string equipo)
         {
             HttpContext.Session.SetString("OctavosSuperados", "true");
 
-            int idPartida = HttpContext.Session.GetInt32("PartidaId").Value;
-
-            BD bd = new BD();
-
-            bd.ActualizarFase(idPartida, 2);
+            HttpContext.Session.SetString("Fase", "2");
 
             return RedirectToAction("Cuartos");
         }
@@ -185,11 +181,7 @@ public IActionResult Index(string nombre, string equipo)
         {
             HttpContext.Session.SetString("CuartosSuperados", "true");
 
-            int idPartida = HttpContext.Session.GetInt32("PartidaId").Value;
-
-            BD bd = new BD();
-
-            bd.ActualizarFase(idPartida, 3);
+            HttpContext.Session.SetString("Fase", "3");
 
             return RedirectToAction("Semis");
         }
@@ -277,11 +269,7 @@ public IActionResult Index(string nombre, string equipo)
         {
             HttpContext.Session.SetString("SemisSuperadas", "true");
 
-            int idPartida = HttpContext.Session.GetInt32("PartidaId").Value;
-
-            BD bd = new BD();
-
-            bd.ActualizarFase(idPartida, 4);
+            HttpContext.Session.SetString("Fase", "4");
 
             return RedirectToAction("Final");
         }
@@ -308,6 +296,9 @@ public IActionResult Index(string nombre, string equipo)
         CodigoFinal codigo = bd.ObtenerCodigoFinal();
 
         HttpContext.Session.SetString("CodigoCorrecto", codigo.CodigoCorrecto.ToString());
+        HttpContext.Session.SetString("Pista1", codigo.Pista1);
+        HttpContext.Session.SetString("Pista2", codigo.Pista2);
+        HttpContext.Session.SetString("Pista3", codigo.Pista3);
 
         ViewBag.Pista1 = codigo.Pista1;
         ViewBag.Pista2 = codigo.Pista2;
@@ -329,28 +320,20 @@ public IActionResult Index(string nombre, string equipo)
 
         string codigoCorrecto = HttpContext.Session.GetString("CodigoCorrecto");
 
+        ViewBag.Pista1 = HttpContext.Session.GetString("Pista1");
+        ViewBag.Pista2 = HttpContext.Session.GetString("Pista2");
+        ViewBag.Pista3 = HttpContext.Session.GetString("Pista3");
+
         if (respuesta.ToString() == codigoCorrecto)
         {
             HttpContext.Session.SetString("FinalSuperada", "true");
 
-            int idPartida = HttpContext.Session.GetInt32("PartidaId").Value;
-
-            BD bd = new BD();
-
-            bd.ActualizarFase(idPartida, 5);
+            HttpContext.Session.SetString("Fase", "5");
 
             return RedirectToAction("ResultadoCorrecto");
         }
 
         ViewBag.Mensaje = "Código incorrecto.";
-
-        BD bd2 = new BD();
-
-        CodigoFinal codigo = bd2.ObtenerCodigoFinal();
-
-        ViewBag.Pista1 = codigo.Pista1;
-        ViewBag.Pista2 = codigo.Pista2;
-        ViewBag.Pista3 = codigo.Pista3;
 
         return View();
     }

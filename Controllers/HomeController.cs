@@ -15,6 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        HttpContext.Session.Clear();
         ViewBag.Mensaje = TempData["Mensaje"];
         return View();
     }
